@@ -4,22 +4,33 @@ Desktop financial news app (Tkinter GUI) with RSS + crawl discovery, concurrent 
 
 ## Quickstart (Windows)
 
-1) Create venv
+### 1) Get the code
+
+If you have Git installed:
+
+```powershell
+git clone https://github.com/TrueDMGDev/FintechFinalProject.git
+cd FintechFinalProject
+```
+
+Or download the repo as a ZIP and extract it.
+
+### 2) (Recommended) Create a virtual environment
+
+This keeps project dependencies isolated (so you don't install packages globally).
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-2) Install dependencies
+### 3) Install dependencies
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-3) (Optional) spaCy entity recognition is included
-
-`requirements.txt` includes spaCy and the `en_core_web_sm` model.
+spaCy entity recognition is included in `requirements.txt` (including the `en_core_web_sm` model).
 
 ## Desktop GUI
 
@@ -48,5 +59,5 @@ Outputs:
 Edit `config/sources.yaml` to enable/disable sources and their RSS URLs.
 Edit `config/config.yaml` for concurrency, rate limits, retry policy, and breaking-news thresholds.
 
-GUI defaults:
+Notes:
 - `gui.auto_save_csv` controls the default state of the **Auto-save CSV** toggle.
