@@ -1,0 +1,96 @@
+sources:
+  - id: cnbc
+    enabled: true
+    rss_urls:
+      - "https://www.cnbc.com/id/10001147/device/rss/rss.html"  # Top News
+      - "https://www.cnbc.com/id/100003114/device/rss/rss.html" # Markets
+    crawl_urls:
+      - "https://www.cnbc.com/finance/"
+      - "https://www.cnbc.com/world/?region=world"
+    allow_regex: "^https?:\\/\\/www\\.cnbc\\.com\\/\\d{4}\\/\\d{2}\\/\\d{2}\\/"
+
+  - id: ft
+    enabled: true
+    rss_urls:
+      - "https://www.ft.com/?format=rss"
+    crawl_urls:
+      - "https://www.ft.com/world"
+
+  - id: bloomberg
+    enabled: true
+    rss_urls:
+      - "https://feeds.bloomberg.com/markets/news.rss"
+    crawl_urls:
+      - "https://www.bloomberg.com/markets"
+
+  - id: marketwatch
+    enabled: true
+    rss_urls:
+      - "https://feeds.marketwatch.com/marketwatch/topstories/"
+      - "https://feeds.marketwatch.com/marketwatch/marketpulse/"
+    crawl_urls:
+      - "https://www.marketwatch.com/latest-news"
+      - "https://www.marketwatch.com/markets"
+    allow_regex: "^https?:\\/\\/www\\.marketwatch\\.com\\/"
+
+  - id: bbc_business
+    enabled: true
+    rss_urls:
+      - "https://feeds.bbci.co.uk/news/business/rss.xml"
+    crawl_urls:
+      - "https://www.bbc.com/news/business"
+    allow_regex: "^https?:\\/\\/(www\\.)?bbc\\.(co\\.uk|com)\\/news\/"
+
+  - id: guardian_business
+    enabled: true
+    rss_urls:
+      - "https://www.theguardian.com/business/rss"
+    crawl_urls:
+      - "https://www.theguardian.com/business"
+    allow_regex: "^https?:\\/\\/www\\.theguardian\\.com\\/business\/"
+
+  - id: cftc_press
+    enabled: false
+    rss_urls:
+      - "https://www.cftc.gov/PressRoom/PressReleases/rss"
+    crawl_urls:
+      - "https://www.cftc.gov/PressRoom/PressReleases"
+    allow_regex: "^https?:\\/\\/www\\.cftc\\.gov\\/PressRoom\/PressReleases\/"
+
+  # Crawl-friendly public finance outlets (no RSS required)
+  - id: yahoo_finance
+    enabled: true
+    rss_urls: []
+    crawl_urls:
+      - "https://finance.yahoo.com/topic/stock-market-news/"
+      - "https://finance.yahoo.com/topic/economic-news/"
+      - "https://finance.yahoo.com/topic/earnings/"
+    allow_regex: "^https?:\\/\\/finance\\.yahoo\\.com\\/news\\/"
+    deny_regex: "^https?:\\/\\/finance\\.yahoo\\.com\\/topic\\/"
+
+  - id: sec_press
+    enabled: true
+    rss_urls:
+      - "https://www.sec.gov/news/pressreleases.rss"
+    crawl_urls: []
+    allow_regex: "^https?:\\/\\/www\\.sec\\.gov\\/news\\/press-release\\/"
+
+breaking_sources:
+  # Small, high-signal set meant for more frequent polling.
+  - id: cnbc_breaking
+    enabled: true
+    rss_urls:
+      - "https://www.cnbc.com/id/100003114/device/rss/rss.html"
+    crawl_urls:
+      - "https://www.cnbc.com/breaking-news/"
+    allow_regex: "^https?:\\/\\/www\\.cnbc\\.com\\/\\d{4}\\/\\d{2}\\/\\d{2}\\/"
+
+  - id: yahoo_breaking
+    enabled: true
+    rss_urls: []
+    crawl_urls:
+      - "https://finance.yahoo.com/topic/stock-market-news/"
+      - "https://finance.yahoo.com/topic/economic-news/"
+      - "https://finance.yahoo.com/topic/earnings/"
+    allow_regex: "^https?:\\/\\/finance\\.yahoo\\.com\\/news\\/"
+    deny_regex: "^https?:\\/\\/finance\\.yahoo\\.com\\/topic\\/"

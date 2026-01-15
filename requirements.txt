@@ -1,0 +1,10 @@
+aiohttp>=3.9
+beautifulsoup4>=4.12
+lxml>=5.2
+pandas>=2.1
+numpy>=1.26
+feedparser>=6.0
+pyyaml>=6.0
+python-dateutil>=2.9
+spacy>=3.7,<4.0
+en-core-web-sm>=3.7.0,<4.0

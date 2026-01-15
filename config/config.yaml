@@ -1,0 +1,62 @@
+http:
+  user_agent: "FintechFinalProjectNewsBot/1.0 (+educational; contact: you@example.com)"
+  user_agent_overrides:
+    finance.yahoo.com: "FintechFinalProjectNewsBot/1.0 (+educational)"
+  header_overrides:
+    finance.yahoo.com:
+      Accept: null
+      Accept-Language: null
+  timeout_seconds: 20
+  max_connections: 30
+
+rss:
+  enabled: true
+
+concurrency:
+  max_in_flight_requests: 20
+
+crawl:
+  enabled: true
+  max_links_per_seed: 35
+  same_domain_only: true
+  seed_timeout_seconds: 12
+  max_articles_per_run: 120
+  min_article_text_chars: 200
+
+rate_limit:
+  # Per-domain token bucket: max requests per period.
+  period_seconds: 1.0
+  max_requests_per_period: 3
+
+retry:
+  max_attempts: 5
+  base_delay_seconds: 0.6
+  max_delay_seconds: 8.0
+  retry_statuses: [429, 500, 502, 503, 504]
+
+human_mode:
+  # Adds an extra randomized delay before each request to look less bursty.
+  enabled: true
+  min_delay_seconds: 0.2
+  max_delay_seconds: 1.0
+
+storage:
+  output_dir: "data"
+
+gui:
+  # Default state for the GUI "Auto-save CSV" toggle.
+  # When enabled, the app writes per-source CSVs like: data/news_<source>.csv
+  auto_save_csv: true
+
+dedup:
+  # Articles with similarity >= threshold are treated as duplicates
+  similarity_threshold: 0.92
+  # How many recent articles to compare against for dedup
+  compare_window: 500
+
+breaking_news:
+  enabled: true
+  poll_seconds: 30
+  # alert if article is within N minutes and has strong finance tags
+  max_age_minutes: 60
+  min_score: 0.55
